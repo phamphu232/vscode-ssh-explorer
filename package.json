@@ -1,0 +1,101 @@
+{
+  "name": "vscode-ssh-explorer",
+  "displayName": "SSH Explorer",
+  "description": "VSCode SSH Explorer Extension",
+  "version": "0.0.1",
+  "publisher": "PhamPhu232",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.98.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./extension.js",
+  "keywords": [
+    "ssh",
+    "sftp",
+    "remote",
+    "filesystem",
+    "proxyjump"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "sshExplorer.openHost",
+        "title": "SSH Explorer: New Connection",
+        "icon": "$(add)"
+      },
+      {
+        "command": "sshExplorer.openTerminal",
+        "title": "SSH Explorer: Open Terminal",
+        "icon": "$(terminal)"
+      },
+      {
+        "command": "sshExplorer.disconnectHost",
+        "title": "SSH Explorer: Disconnect",
+        "icon": "$(debug-disconnect)"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "sshExplorer",
+          "title": "SSH Explorer",
+          "icon": "$(remote)"
+        }
+      ]
+    },
+    "views": {
+      "sshExplorer": [
+        {
+          "id": "sshExplorerHosts",
+          "name": "Hosts"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "sshExplorer.openHost",
+          "when": "view == sshExplorerHosts",
+          "group": "navigation@1"
+        },
+        {
+          "command": "sshExplorer.openTerminal",
+          "when": "view == sshExplorerHosts",
+          "group": "navigation@2"
+        },
+        {
+          "command": "sshExplorer.disconnectHost",
+          "when": "view == sshExplorerHosts",
+          "group": "navigation@3"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "echo no build step",
+    "package": "vsce package",
+    "publish": "vsce publish",
+    "lint": "eslint .",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "24.x",
+    "@types/vscode": "^1.98.0",
+    "@vscode/test-cli": "^0.0.15",
+    "@vscode/test-electron": "^3.0.0",
+    "eslint": "^10.5.0"
+  },
+  "overrides": {
+    "diff": "^8.0.4",
+    "serialize-javascript": "^7.0.6"
+  },
+  "dependencies": {
+    "ssh-config": "^5.2.0",
+    "ssh2": "^1.17.0"
+  }
+}
