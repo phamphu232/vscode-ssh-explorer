@@ -3,7 +3,7 @@
   "displayName": "SSH Explorer",
   "description": "VSCode SSH Explorer Extension",
   "version": "0.0.1",
-  "publisher": "PhamPhu232",
+  "publisher": "phamphu232",
   "license": "MIT",
   "engines": {
     "vscode": "^1.98.0"
